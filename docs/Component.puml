@@ -1,0 +1,10 @@
+@startuml
+
+title Components - Component Diagram
+
+[Shared Cache (Redis)]
+[Persistence (Postgres)]
+[Shortner Serice] 
+[Forwarder Serice] 
+
+@enduml
