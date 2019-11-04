@@ -38,7 +38,7 @@ docker run -e DB_HOST='localhost' -e DB_PORT='5432' -e DB_NAME='shortnerdb' -e D
 ## TroubleShooting
 Clear docker cache using following command, in case the changes in code/properties seems to be not getting picked up by the latest image run
 ```
-docker prune
+docker system prune
 ```
 re-create docker image using following command, and try re-running
 ```
