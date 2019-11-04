@@ -35,3 +35,12 @@ e.g
 docker run -e DB_HOST='localhost' -e DB_PORT='5432' -e DB_NAME='shortnerdb' -e DB_USER='postgres' -e DB_PASSWORD='postgres' -p 5000:8080 urlshortner
 
 ```
+## TroubleShooting
+Clear docker cache using following command, in case the changes in code/properties seems to be not getting picked up by the latest image run
+```
+docker prune
+```
+re-create docker image using following command, and try re-running
+```
+docker build -t urlshortner
+```
