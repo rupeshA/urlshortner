@@ -11,9 +11,9 @@ Most of us are familiar with seeing URLs like bit.ly or t.co on our Twitter 
 
 ## Running the application locally
 Export or set following properties to connect to a postgres database, and then run teh subsequent commands to run it locally
-spring.datasource.username=${DB_USER}
-spring.datasource.password=${DB_PASSWORD}
-spring.datasource.url=jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+* spring.datasource.username=${DB_USER}
+* spring.datasource.password=${DB_PASSWORD}
+* spring.datasource.url=jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
 
 ```
 mvn clean install
