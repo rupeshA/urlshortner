@@ -25,6 +25,8 @@ import com.app.urlshortner.model.URLShortenerResponse;
 import com.app.urlshortner.service.ShortenerService;
 import com.app.urlshortner.util.ShortenerUtil;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping(value = ShortenerController.ROOT)
 @Validated
@@ -36,8 +38,6 @@ public class ShortenerController {
     private static final String REDIRECT_PATH = "rd/{urlKey}";
     public static final String ROOT = "/";
     private static final String REPORT_PATH = "report";
-
-
 
     @Autowired
     public ShortenerController(ShortenerService shortenerService) {
@@ -67,7 +67,7 @@ public class ShortenerController {
     }
 
     @PostMapping(path = REPORT_PATH)
-    public ResponseEntity<Object> resolve(@RequestBody ReportRequest reportRequest) {
+    public ResponseEntity<Object> report(@RequestBody ReportRequest reportRequest) {
         LOG.info("POST request received to get report with request {}", reportRequest);
         ShortenerUtil.isValidReportRequest(reportRequest);
         List<ReportRow> response = shortenerService.getReport(reportRequest);

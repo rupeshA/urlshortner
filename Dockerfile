@@ -20,4 +20,4 @@ COPY target/dependencies/*.jar /apps/shortner-service/
 COPY target/${JAR_FILE}.jar /apps/shortner-service/
 
 # Run the jar file 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-cp","/apps/shortner-service/*", "com.ragrawal.test.urlshortner.Application"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-cp","/apps/shortner-service/*", "com.app.urlshortner.Application"]

@@ -1,6 +1,5 @@
 package com.app.urlshortner.model;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(value = "URLShortenRequest")
 public class URLShortenRequest {
 
-    @ApiModelProperty
+    @ApiModelProperty(required = true, value = "The URL to be shortened", example = "http://www.google.com")
     @JsonProperty("url")
     @NotNull
     private String url;

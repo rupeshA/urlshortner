@@ -1,5 +1,6 @@
 package com.app.urlshortner.model;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -11,40 +12,42 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(value = "ReportRequest")
 public class ReportRequest {
 
-    @ApiModelProperty
+    @ApiModelProperty(required = true, value = "the long value of the time stamp from where to start looking for",
+                    example = "1572000000000")
     @JsonProperty("start")
     @NotNull
     @Min(0)
     private Long start;
 
-    @ApiModelProperty
+    @ApiModelProperty(required = true, value = "the long value of the time stamp till when to look for",
+                    example = "1572873959000")
     @JsonProperty("end")
     @NotNull
     @Min(0)
     private Long end;
 
-    @ApiModelProperty
+    @ApiModelProperty(required = true,
+                    value = "Offset value used for getting the result page, for first page the value will be 0",
+                    example = "0")
     @JsonProperty("from")
     @Min(value = 0, message = "From must be greater than or equal to zero")
     private Integer from = 0;
 
-    @ApiModelProperty
+    @ApiModelProperty(required = true, value = "Size of the resultset to be fetched min = 1, max=20",
+                    example = "10")
     @JsonProperty("size")
     @Min(value = 1, message = "Size must be greater than zero")
-    private Integer size = 1000;
+    @Max(value = 20, message = "Size must be greater than zero")
+    private Integer size;
 
-    @ApiModelProperty
+    @ApiModelProperty(required = true, value = "Column to be used to sort the data", example = "created_at")
     @JsonProperty("sort_on")
     private String sortOn = "created_at";
 
-    @ApiModelProperty
+    @ApiModelProperty(required = true,
+                    value = "Sort order to be applied on the column selected to sort on ASC/DESC", example = "ASC")
     @JsonProperty("sort_order")
     private String sortOrder = "asc";
-
-    @ApiModelProperty
-    @Min(value = 0, message = "Size must be greater than or equal zero")
-    @JsonProperty("offset")
-    private Integer offset;
 
 
     public ReportRequest(@NotNull @Min(0) Long start, @NotNull @Min(0) Long end,
@@ -56,8 +59,8 @@ public class ReportRequest {
         this.end = end;
         this.from = from;
         this.size = size;
-        this.sortOn = sortOn;
-        this.sortOrder = sortOrder;
+        this.sortOn = sortOn == null ? this.sortOn : sortOn;
+        this.sortOrder = sortOrder == null ? this.sortOrder : sortOrder;
     }
 
     public Long getStart() {
