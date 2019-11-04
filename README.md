@@ -28,7 +28,7 @@ The yaml file will be generated at the location  {base_directory}/generated/swag
 # Building and running Docker image
 ## build the docker image
 ```
-mvn clean package
+docker build -t urlshortner
 ```
 ## run the docker image(with default parameters)
 ```
