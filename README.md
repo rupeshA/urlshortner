@@ -11,22 +11,13 @@ Most of us are familiar with seeing URLs like bit.ly or t.co on our Twitter 
 
 ## Running the application locally
 ```
+mvn clean install
 mvn clean spring-boot:run
 ```
 Once run the application will be up at http://localhost:8080/ and swagger file will be available at http://localhost:8080/swagger-ui.html
 
-
-## Generate Swagger yaml
-Run the below command after cloning the repository.
-```sh
-$ cd urlshortner
-$ mvn clean install
-$ mvn swagger:generate
-```
-The yaml file will be generated at the location  {base_directory}/generated/swagger-ui
-
 # Building and running Docker image
-## build the docker image
+## build the docker image explicitly
 ```
 docker build -t urlshortner
 ```
