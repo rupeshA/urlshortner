@@ -14,6 +14,7 @@ Export or set following properties to connect to a postgres database, and then r
 * spring.datasource.username=${DB_USER}
 * spring.datasource.password=${DB_PASSWORD}
 * spring.datasource.url=jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+* Execute the following SQL file on the target db to crete the initial scema https://github.com/rupeshA/urlshortner/blob/master/src/main/resources/schema.sql
 
 Additionally following property is required to create the redirection URL by the system and also to filterout a request which tries to shorten the system's shortening URL.
 * hosted.url=${HOSTED_URL}
